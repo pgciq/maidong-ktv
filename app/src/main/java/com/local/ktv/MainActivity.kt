@@ -440,7 +440,6 @@ class MainActivity : AppCompatActivity() {
         updateMobileQrOverlay()
         main.postDelayed(remoteNetworkMonitor, 5000)
         main.post(lyricTicker)
-        main.postDelayed({ checkAppUpdate(false) }, 2500L)
     }
 
     private fun initializeDatabase() {
@@ -7913,12 +7912,6 @@ class MainActivity : AppCompatActivity() {
             SettingsEntry(R.drawable.ott_ic_data_setting, "数据设置", "数据库、歌曲下载、歌曲文件相关设置") { showSettingsSection(1) },
             SettingsEntry(R.drawable.ott_ic_play, "播放设置", "播放器、视频窗口相关设置") { showSettingsSection(2) },
             SettingsEntry(R.drawable.ott_ic_sound, "声音设置") { showSoundSettingsDialog() },
-            SettingsEntry(
-                R.drawable.ott_ic_data_upgrade,
-                "应用更新",
-                "当前版本 ${BuildConfig.VERSION_NAME}，更新来源：Gitee Release",
-                "检查更新",
-            ) { checkAppUpdate(true) },
             SettingsEntry(R.drawable.ott_ic_about_us, "关于", actionText = "查看") { showAboutDialog() },
         )
         activeSettingsEntries = entries

@@ -8,11 +8,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.local.ktv"
+        applicationId "com.local.ktv.noupdate"
         minSdk 21
         targetSdk 25
         versionCode 4
-        versionName "1.2.3"
+        versionName "1.2.3-noupdate"
         ndk {
             // Package each ABI's complete IJK set; never mix individual SOs across the two sets.
             abiFilters "armeabi-v7a", "arm64-v8a"

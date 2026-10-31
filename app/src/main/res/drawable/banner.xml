@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 麦动 banner 背景:深黑渐变 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <gradient
-        android:startColor="#FF080C12"
-        android:centerColor="#FF0F161F"
-        android:endColor="#FF161F2A"
-        android:angle="45" />
-</shape>
+<!-- Android TV 启动横幅：深色背景加居中的麦动 KTV Logo。 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#FF080C12"
+                android:centerColor="#FF2A1454"
+                android:endColor="#FF123B70"
+                android:angle="0" />
+        </shape>
+    </item>
+    <item
+        android:width="128dp"
+        android:height="128dp"
+        android:gravity="center">
+        <bitmap
+            android:gravity="fill"
+            android:src="@drawable/ic_launcher_art" />
+    </item>
+</layer-list>
