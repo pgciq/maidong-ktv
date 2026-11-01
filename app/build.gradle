@@ -11,8 +11,8 @@ android {
         applicationId "com.local.ktv.noupdate"
         minSdk 21
         targetSdk 25
-        versionCode 5
-        versionName "1.2.4-noupdate"
+        versionCode 6
+        versionName "1.2.5-noupdate"
         ndk {
             // Package each ABI's complete IJK set; never mix individual SOs across the two sets.
             abiFilters "armeabi-v7a", "arm64-v8a"
@@ -21,6 +21,9 @@ android {
         buildConfigField "String", "GITEE_DATABASE_MANIFEST_URL", "\"${manifestUrl}\""
         def giteeToken = project.findProperty("GITEE_DATABASE_TOKEN") ?: ""
         buildConfigField "String", "GITEE_DATABASE_TOKEN", "\"${giteeToken}\""
+        // Default to the packaged JS; enable explicitly with -PENABLE_JS_HOT_UPDATE=true.
+        def enableJsHotUpdate = (project.findProperty("ENABLE_JS_HOT_UPDATE") ?: "false").toString().toBoolean()
+        buildConfigField "boolean", "ENABLE_JS_HOT_UPDATE", enableJsHotUpdate.toString()
 
     }
 

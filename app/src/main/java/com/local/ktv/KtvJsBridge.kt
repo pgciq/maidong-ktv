@@ -55,10 +55,14 @@ class KtvJsBridge(context: Context) {
             }
             try {
                 val cached = File(appContext.filesDir, CACHE_FILE)
-                val cachedScript = cached.takeIf(::isValidScript)?.readText(Charsets.UTF_8)
+                val cachedScript = if (BuildConfig.ENABLE_JS_HOT_UPDATE) {
+                    cached.takeIf(::isValidScript)?.readText(Charsets.UTF_8)
+                } else {
+                    null
+                }
                 loadedFromCache = cachedScript != null
                 createWebView(cachedScript ?: readAssetScript(), callback)
-                updateCache(cached)
+                if (BuildConfig.ENABLE_JS_HOT_UPDATE) updateCache(cached)
             } catch (error: Throwable) {
                 Log.e(TAG, "WebView init failed", error)
                 callback(false)
