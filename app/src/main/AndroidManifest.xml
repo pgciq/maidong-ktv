@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- ===== 系统与设备管理权限 ===== -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <!-- ===== 硬件特性声明 ===== -->
@@ -72,14 +71,5 @@
             </intent-filter>
         </activity>
 
-        <!-- 开机自启动接收器:设备启动完成后自动进入 KTV 主界面 -->
-        <receiver
-            android:name=".BootReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>
